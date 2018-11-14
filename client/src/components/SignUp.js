@@ -28,6 +28,7 @@ class SignUpForm extends Component {
         }
     }
 
+
     onSubmit = (e) => {
         const {
             email,

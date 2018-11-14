@@ -2,6 +2,7 @@
   "name": "gruscery-list",
   "version": "1.0.0",
   "scripts": {
+    "test": "export NODE_ENV=test && jasmine",
     "client": "cd client && npm run start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
@@ -10,12 +11,15 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^5.0.0",
     "express": "^4.16.4",
     "react": "^16.6.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "jasmine": "^3.3.0",
+    "request": "^2.88.0"
   }
 }
