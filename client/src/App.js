@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Link } from 'react-router-dom';
+
+
+import Landing from './components/Landing.js';
+import Navigation from './components/Navigation.js';
+import SignUp from './components/SignUp.js';
+
 import './App.css';
+
+
 class App extends Component {
   state = {
     response: '',
@@ -20,7 +28,7 @@ class App extends Component {
     if (response.status !== 200) throw Error(body.message);
     return body;
   };
-  
+
   handleSubmit = async e => {
     e.preventDefault();
     const response = await fetch('/api/world', {
@@ -36,20 +44,13 @@ class App extends Component {
 render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Navigation />
+
+        <main>
+          <Route exact path="/" component={Landing} />
+          <Route path="/SignUp" component={SignUp} />
+        </main>
+        
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
