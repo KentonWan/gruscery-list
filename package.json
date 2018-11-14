@@ -13,9 +13,12 @@
     "body-parser": "^1.18.3",
     "dotenv": "^5.0.0",
     "express": "^4.16.4",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "react": "^16.6.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sequelize": "^4.32.6"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
