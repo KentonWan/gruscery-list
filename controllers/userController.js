@@ -4,6 +4,12 @@ const passport = require("passport");
 
 module.exports = {
 
+    currentUser(req, res, next) {
+        var user = req.user;
+        console.log(user);
+    },
+
+
     create(req, res, next){
 
         let newUser = {
@@ -19,6 +25,7 @@ module.exports = {
 
                 passport.authenticate("local")(req, res, () => {
                     console.log("You've successfully signed in!");
+                    res.send(req.user.dataValues);
                 })
             }
         })
@@ -30,6 +37,7 @@ module.exports = {
                 console.log("sign in failed");
             } else {
                 console.log("You've signed in successfully!")
+                console.log(req.user.dataValues)
             }
         })
     },

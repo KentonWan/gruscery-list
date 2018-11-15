@@ -16,12 +16,17 @@ class App extends Component {
     response: '',
     post: '',
     responseToPost: '',
+    user: ''
   };
 
   componentDidMount() {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
+
+    this.getUser()
+      .then(res => this.setState({ user: res }))
+      .catch(err => console.log(err))
   }
 
   callApi = async () => {
@@ -30,6 +35,14 @@ class App extends Component {
     if (response.status !== 200) throw Error(body.message);
     return body;
   };
+
+  getUser = async () => {
+    const response = await fetch('/users/currentUser');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
+
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -44,6 +57,8 @@ class App extends Component {
     const body = await response.text();
     this.setState({ responseToPost: body });
   };
+
+
 render() {
     return (
       <div className="App">
@@ -56,6 +71,7 @@ render() {
         </main>
         
         <p>{this.state.response}</p>
+        <p>{this.state.user.email}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>

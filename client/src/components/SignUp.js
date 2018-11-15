@@ -31,7 +31,8 @@ class SignUpForm extends Component {
             body: JSON.stringify({ email: this.state.email, password: this.state.password }),
           });
         console.log(response);
-        const body = await response.text();
+        const body = await response.json();
+        console.log(body);
 
         this.setState({email: '', password: ''});
       };

@@ -1,6 +1,8 @@
 require("dotenv").config();
 const path = require("path");
+const cookierParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const cookieSession = require("cookie-session");
 const session = require("express-session");
 const flash = require("express-flash");
 const passportConfig = require("./passport_config");
