@@ -5,6 +5,8 @@ import { Route, Link } from 'react-router-dom';
 import Landing from './components/Landing.js';
 import Navigation from './components/Navigation.js';
 import SignUp from './components/SignUp.js';
+import SignIn from './components/SignIn.js';
+
 
 import './App.css';
 
@@ -50,6 +52,7 @@ render() {
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/SignUp" component={SignUp} />
+          <Route path="/SignIn" component={SignIn} />
         </main>
         
         <p>{this.state.response}</p>

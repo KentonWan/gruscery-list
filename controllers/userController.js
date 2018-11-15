@@ -22,5 +22,20 @@ module.exports = {
                 })
             }
         })
+    },
+
+    signIn(req,res,next){
+        passport.authenticate("local")(req,res, function () {
+            if(!req.user) {
+                console.log("sign in failed");
+            } else {
+                console.log("You've signed in successfully!")
+            }
+        })
+    },
+
+    signOut(req, res, next){
+        req.logout();
+        console.log("You've successfully signed out!")
     }
 }
