@@ -7,4 +7,5 @@ router.get("/", staticController.index);
 router.get("/api/hello", staticController.hello);
 
 
+
 module.exports = router;

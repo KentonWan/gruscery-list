@@ -1,11 +1,9 @@
 const bodyParser = require('body-parser');
-
 const path = require('path');
-
 const express = require("express");
 const app = require("./app");
-
 const port = process.env.PORT || 5000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,6 +15,12 @@ app.post('/api/world', (req, res) => {
     `I received your POST request. This is what you sent me: ${req.body.post}`,
   );
 });
+
+// app.post('/users/new', (req, res) => {
+//   console.log(req.body);
+//   res.send("got it");
+// })
+
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
