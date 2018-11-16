@@ -6,6 +6,8 @@ import Landing from './components/Landing.js';
 import Navigation from './components/Navigation.js';
 import SignUp from './components/SignUp.js';
 import SignIn from './components/SignIn.js';
+import Lists from './components/Lists.js';
+
 
 
 import './App.css';
@@ -72,6 +74,7 @@ render() {
           <Route exact path="/" component={Landing} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/SignIn" component={SignIn} />
+          <Route path="/Lists" component={Lists} />
         </main>
         
         <p>{this.state.response}</p>
