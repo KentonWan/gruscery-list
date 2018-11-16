@@ -7,4 +7,6 @@ router.get("/lists", listController.index);
 
 router.get("/lists/all", listController.getAllLists);
 
+router.post("lists/create", listController.create);
+
 module.exports = router;

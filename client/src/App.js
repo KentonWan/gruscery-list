@@ -18,7 +18,6 @@ class App extends Component {
     response: '',
     post: '',
     responseToPost: '',
-    user: ''
   };
 
   componentDidMount() {
@@ -54,11 +53,11 @@ class App extends Component {
 
 
 render() {
-    console.log("render",this.state.user)
   
     return (
       <div className="App">
         <Navigation />
+        <Landing />
 
         <main>
           <Route exact path="/" component={Landing} />
@@ -67,7 +66,7 @@ render() {
           <Route path="/Lists" component={Lists} />
         </main>
         
-        <p>{this.state.response}</p>
+        {/* <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>
@@ -79,7 +78,7 @@ render() {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>{this.state.responseToPost}</p> */}
       </div>
     );
   }
