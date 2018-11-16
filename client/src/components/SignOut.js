@@ -12,7 +12,9 @@ class SignOut extends Component {
             method: 'GET',
           });
         console.log(response);
-        const body = await response.text();
+        const body = await response.text();        
+        this.props.setUser(null);
+
 
     };
 

@@ -24,10 +24,6 @@ class App extends Component {
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
 
-    this.getUser()
-      .then(res => this.setState({user: res.id}))
-      .catch(err => console.log(err));
-    
 
   }
 
@@ -38,12 +34,6 @@ class App extends Component {
     return body;
   };
 
-  getUser = async () => {
-    const response = await fetch('/users/currentUser');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
-  }
 
 
   handleSubmit = async e => {
@@ -66,7 +56,7 @@ render() {
   
     return (
       <div className="App">
-        <Navigation user={this.state.user}/>
+        <Navigation />
 
         <main>
           <Route exact path="/" component={Landing} />

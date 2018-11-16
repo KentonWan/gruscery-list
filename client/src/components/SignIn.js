@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
-const SignInPage = () => 
-    <div>
-        <h2>Sign In</h2>
-        <SignInForm  />
-    </div>
-
-
 
 class SignInForm extends Component {
     constructor(props) {
@@ -16,6 +9,7 @@ class SignInForm extends Component {
         this.state = {
             email: '',
             password: '',
+            user: ''
 
         }
     }
@@ -31,18 +25,15 @@ class SignInForm extends Component {
             body: JSON.stringify({ email: this.state.email, password: this.state.password }),
           });
         console.log(response);
-        // const body = await response.json();
-        // console.log(body);
-        this.setState({loggedIn: true});
+        const body = await response.json();
+        this.setState({user: body});
+        this.props.setUser(body);
 
         this.setState({email: '', password: ''});
       };
 
 
     render() {
-        if(this.state.loggedIn) {
-            return <Redirect to="/" />;
-        }
 
         return (
             <div className="container col-md-4 offset-md-4">
@@ -55,11 +46,6 @@ class SignInForm extends Component {
                                 type="text"
                                 placeholder="Email Address"
                             />
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                    <div className="col-sm-10 offset-sm-1">
                             <input
                                 name = "password"
                                 value={this.state.password}
@@ -67,10 +53,10 @@ class SignInForm extends Component {
                                 type="password"
                                 placeholder="Password"
                             />
+                                                <button type="submit" className="btn btn-success"> Sign In</button>
+
                         </div>
-                    </div>
-                    <button type="submit" className="btn btn-success"> Sign In</button>
-                
+                    </div>          
                 </form>
             </div>
         )
@@ -78,8 +64,4 @@ class SignInForm extends Component {
 }
 
 
-export default withRouter(SignInPage);
-
-export {
-    SignInForm,
-}
+export default SignInForm;

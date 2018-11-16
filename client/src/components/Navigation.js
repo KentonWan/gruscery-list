@@ -1,44 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import SignOut from './SignOut';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
+
+
 
 import './Navigation.css';
 
-const Navigation = ({user}) => 
-    <nav className="navbar navbar-expand-md fixed-top">
-        <div className="container text-center">
-            <Link className="link" to="/"><img src={require('../shopping-cart.jpg')} width="20" alt="logo" className="logo" /></Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div>
-                { user ? <NavigationAuth /> : <NavigationNonAuth /> }
-            </div>
-        </div>
-    </nav>
+class Navigation extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: ''
+        }
+    }
 
-const NavigationAuth = () => 
-    <div className="collapse navbar-collapse" id="navbarResponsive">
-        <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-                <Link className="link" to='/Lists'>Lists</Link>
-            </li>
-            <li className="nav-item">
-                <SignOut />
-            </li>
-        </ul>
-    </div>
+    setUser(currentUser) {
+        let user = currentUser;
+        this.setState({user: user})
+    }
 
-const NavigationNonAuth = () => 
-<div className="collapse navbar-collapse" id="navbarResponsive">
-    <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-            <Link className="link" to='/SignUp'>Sign Up</Link>
-        </li>
-        <li className="nav-item">
-            <Link className="link" to='/SignIn'>Sign In</Link>
-        </li>
-    </ul>
-</div>
+
+    render () {
+
+        return (
+            <nav className="navbar navbar-expand-md fixed-top">
+                <div className="container text-center">
+                    <Link className="link" to="/"><img src={require('../shopping-cart.jpg')} width="20" alt="logo" className="logo" /></Link>
+                    <div>
+                    <div className="collapse navbar-collapse" id="navbarResponsive">
+                        <ul className="navbar-nav ml-auto">
+                            {(this.state.user) ? 
+                            <div>                        
+                                <li className="nav-item">
+                                    <Link className="link" to='/Lists'>Lists</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <SignOut setUser={this.setUser.bind(this)}/>
+                                    </li> 
+                            </div>
+                            : 
+                            <div>
+                                <li className="nav-item">
+                                    <SignUp setUser={this.setUser.bind(this)} />
+                                </li>
+                                <li className="nav-item">
+                                    <SignIn setUser={this.setUser.bind(this)} />
+                                </li>
+                            </div> 
+                            }
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+
+        )
+    }
+}   
+
 
 export default Navigation;
