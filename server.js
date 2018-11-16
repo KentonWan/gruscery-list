@@ -16,10 +16,6 @@ app.post('/api/world', (req, res) => {
   );
 });
 
-// app.post('/users/new', (req, res) => {
-//   console.log(req.body);
-//   res.send("got it");
-// })
 
 
 if (process.env.NODE_ENV === 'production') {

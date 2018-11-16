@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
-import {  withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
-
-const SignUpPage = () => 
-    <div>
-        <h2>Join Now & Start Shopping</h2>
-        <SignUpForm  />
-    </div>
 
 
-
-class SignUpForm extends Component {
+class SignUpPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: '',
             error: null,
-            loggedIn: false
+            user: ''
 
         }
     }
@@ -34,9 +25,9 @@ class SignUpForm extends Component {
           });
         console.log(response);
         const body = await response.json();
-        console.log(body);
+        this.setState({user: body});
+        this.props.setUser(body);
 
-        this.setState({loggedIn: true});
 
         this.setState({email: '', password: ''});
 
@@ -45,9 +36,7 @@ class SignUpForm extends Component {
 
     render() {
 
-        if(this.state.loggedIn) {
-            return <Redirect to="/" />;
-        }
+
 
         return (
             <div className="container col-md-4 offset-md-4">
@@ -60,11 +49,6 @@ class SignUpForm extends Component {
                                 type="text"
                                 placeholder="Email Address"
                             />
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                    <div className="col-sm-10 offset-sm-1">
                             <input
                                 name = "password"
                                 value={this.state.password}
@@ -72,10 +56,9 @@ class SignUpForm extends Component {
                                 type="password"
                                 placeholder="Password"
                             />
+                            <button type="submit" className="btn btn-success"> Sign Up</button>
                         </div>
-                    </div>
-                    <button type="submit" className="btn btn-success"> Sign Up</button>
-                
+                    </div>                    
                 </form>
             </div>
         )
@@ -83,8 +66,4 @@ class SignUpForm extends Component {
 }
 
 
-export default withRouter(SignUpPage);
-
-export {
-    SignUpForm,
-}
+export default SignUpPage

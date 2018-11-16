@@ -19,7 +19,6 @@ module.exports = {
             email: req.body.email,
             password: req.body.password
         };
-        res.send("user created");
 
         userQueries.createUser(newUser, (err, user) => {
             if(err) {
@@ -28,7 +27,8 @@ module.exports = {
 
                 passport.authenticate("local")(req, res, () => {
                     console.log("You've successfully signed in!");
-                    res.redirect('/users/currentUser');
+                    res.send(req.user);
+                    // res.redirect('/users/currentUser');
                 })
             }
         })
@@ -40,13 +40,14 @@ module.exports = {
                 console.log("sign in failed");
             } else {
                 console.log("You've signed in successfully!")
-                res.redirect('/users/currentUser')
+                res.send(req.user);
             }
         })
     },
 
     signOut(req, res, next){
         req.logout();
+        res.send("logged out");
         console.log("You've successfully signed out!")
     }
 }
