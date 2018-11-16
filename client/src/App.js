@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 import Landing from './components/Landing.js';
@@ -25,8 +25,10 @@ class App extends Component {
       .catch(err => console.log(err));
 
     this.getUser()
-      .then(res => this.setState({ user: res }))
-      .catch(err => console.log(err))
+      .then(res => this.setState({user: res.id}))
+      .catch(err => console.log(err));
+    
+
   }
 
   callApi = async () => {
@@ -60,9 +62,11 @@ class App extends Component {
 
 
 render() {
+    console.log("render",this.state.user)
+  
     return (
       <div className="App">
-        <Navigation />
+        <Navigation user={this.state.user}/>
 
         <main>
           <Route exact path="/" component={Landing} />
@@ -71,7 +75,6 @@ render() {
         </main>
         
         <p>{this.state.response}</p>
-        <p>{this.state.user.email}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>

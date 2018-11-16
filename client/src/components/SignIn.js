@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const SignInPage = () => 
     <div>
@@ -30,14 +31,18 @@ class SignInForm extends Component {
             body: JSON.stringify({ email: this.state.email, password: this.state.password }),
           });
         console.log(response);
-        const body = await response.json();
-        console.log(body);
+        // const body = await response.json();
+        // console.log(body);
+        this.setState({loggedIn: true});
 
         this.setState({email: '', password: ''});
       };
 
 
     render() {
+        if(this.state.loggedIn) {
+            return <Redirect to="/" />;
+        }
 
         return (
             <div className="container col-md-4 offset-md-4">

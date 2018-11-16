@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import {  withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const SignUpPage = () => 
     <div>
@@ -15,7 +16,8 @@ class SignUpForm extends Component {
         this.state = {
             email: '',
             password: '',
-            error: null
+            error: null,
+            loggedIn: false
 
         }
     }
@@ -34,11 +36,18 @@ class SignUpForm extends Component {
         const body = await response.json();
         console.log(body);
 
+        this.setState({loggedIn: true});
+
         this.setState({email: '', password: ''});
+
       };
 
 
     render() {
+
+        if(this.state.loggedIn) {
+            return <Redirect to="/" />;
+        }
 
         return (
             <div className="container col-md-4 offset-md-4">

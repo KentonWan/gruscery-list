@@ -1,0 +1,9 @@
+a.nav-item:hover {
+    text-decoration: none;
+}
+
+a.link:hover {
+    text-decoration: none;
+    color: green;
+    font-weight: 300;
+}
