@@ -6,6 +6,8 @@ import Landing from './components/Landing.js';
 import Navigation from './components/Navigation.js';
 import SignUp from './components/SignUp.js';
 import SignIn from './components/SignIn.js';
+import Lists from './components/Lists.js';
+
 
 
 import './App.css';
@@ -57,14 +59,16 @@ render() {
     return (
       <div className="App">
         <Navigation />
+        <Landing />
 
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/SignIn" component={SignIn} />
+          <Route path="/Lists" component={Lists} />
         </main>
         
-        <p>{this.state.response}</p>
+        {/* <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>
@@ -76,7 +80,7 @@ render() {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>{this.state.responseToPost}</p> */}
       </div>
     );
   }
