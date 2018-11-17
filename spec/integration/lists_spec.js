@@ -6,7 +6,7 @@ const sequelize = require("../../src/db/models/index").sequelize;
 
 describe("routes : lists", () => {
 
-    // beforeEach((done) => {
+    beforeEach((done) => {
         
         this.list;
         sequelize.sync({force: true}).then((res) => {
@@ -23,6 +23,7 @@ describe("routes : lists", () => {
                 done();
             })
         });
+    });
 
     describe("GET /lists", () => {
   
@@ -49,7 +50,7 @@ describe("routes : lists", () => {
                 List.findOne({where: {title: "Daddy's List"}})
                 .then((list) => {
                     console.log("list", list)
-                    expect(res.statusCode).toBe(200);
+                    expect(res.statusCode).toBe(303);
                     expect(list.title).toBe("Daddy's List");
                     done();
                 })
@@ -59,5 +60,47 @@ describe("routes : lists", () => {
                 })
             })
         })
-    })
+    }
+    
+    );
+
+    describe("GET /lists/:id", () => {
+
+        it("should render a view with the selected list", (done) => {
+          request.get(`${base}${this.list.id}`, (err, res, body) => {
+            expect(err).toBeNull();
+            done();
+          });
+        });
+   
+      });
+
+      describe("POST /lists/:id/destroy", () => {
+
+        it("should delete the list with the associated ID", (done) => {
+   
+    
+          List.all()
+          .then((lists) => {
+   
+    
+            const listCountBeforeDelete = lists.length;
+   
+            expect(listCountBeforeDelete).toBe(1);
+   
+    
+            request.post(`${base}${this.list.id}/destroy`, (err, res, body) => {
+              List.all()
+              .then((lists) => {
+                expect(err).toBeNull();
+                expect(lists.length).toBe(listCountBeforeDelete - 1);
+                done();
+              })
+   
+            });
+          });
+   
+        });
+   
+      });
   });

@@ -4,14 +4,6 @@ const passport = require("passport");
 
 module.exports = {
 
-    currentUser(req, res, next) {
-        if(!req.user) {
-            console.log("please sign in")
-        } else {
-            res.send({id: `${req.user.id}`});
-        }
-    },
-
 
     create(req, res, next){
 
@@ -28,7 +20,6 @@ module.exports = {
                 passport.authenticate("local")(req, res, () => {
                     console.log("You've successfully signed in!");
                     res.send(req.user);
-                    // res.redirect('/users/currentUser');
                 })
             }
         })

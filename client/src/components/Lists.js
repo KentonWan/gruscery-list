@@ -1,11 +1,11 @@
 import React, { Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Lists extends Component {
     constructor(props){
         super(props);
         this.state = {
             lists: [],
-            response: '',
             listTitle: ''
         }
         
@@ -14,15 +14,15 @@ class Lists extends Component {
 
     componentDidMount() {
         this.getAllLists()
-          .then(res => this.setState({ response: res }))
+          .then(res => this.setState({ lists: res.lists }))
           .catch(err => console.log(err));
     };
 
     getAllLists = async () => {
         const response = await fetch('/lists/all');
-        const body = await response.text();
+        const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
-        console.log(body);
+        console.log("getAllLists",body.lists);
         return body;
       }; 
 
@@ -44,12 +44,21 @@ class Lists extends Component {
 
 
 
+
+
     render () {
 
         return(
             <div className="container">
             <h4> Lists </h4>
             <div className="lists">
+                {
+                 this.state.lists.map((list,index) =>
+                    <Link to={`/lists/${list.id}`} key={index} className="list-link">
+                        <p>{list.title}{list.id}</p>
+                    </Link>
+                    )
+                }
             </div>
             <div className="newList">
                 <form className="newListForm" onSubmit={this.onSubmit}>
@@ -63,12 +72,7 @@ class Lists extends Component {
                 <button type="submit" className="btn btn-success"> Add List</button>
                 </form>                
             </div>
-                {/* {
-                    this.state.lists.map((list, index) => 
-                    <p className="list" key={index}>
-                    {list.title}
-                    </p>)
-                } */}
+
             </div>
         )
     }

@@ -7,6 +7,8 @@ import Navigation from './components/Navigation.js';
 import SignUp from './components/SignUp.js';
 import SignIn from './components/SignIn.js';
 import Lists from './components/Lists.js';
+import List from './components/List.js';
+
 
 
 
@@ -54,18 +56,17 @@ class App extends Component {
 
 
 render() {
-    console.log("render",this.state.user)
   
     return (
       <div className="App">
         <Navigation />
-        <Landing />
 
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/SignIn" component={SignIn} />
-          <Route path="/Lists" component={Lists} />
+          <Route exact path="/Lists" component={Lists} />
+          <Route path="/Lists/:id" component={List} />
         </main>
         
         {/* <p>{this.state.response}</p>

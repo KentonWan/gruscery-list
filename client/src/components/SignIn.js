@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+
 
 
 class SignInForm extends Component {
@@ -29,7 +28,9 @@ class SignInForm extends Component {
         this.setState({user: body});
         this.props.setUser(body);
 
+
         this.setState({email: '', password: ''});
+
       };
 
 
