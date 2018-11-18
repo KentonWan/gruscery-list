@@ -13,4 +13,6 @@ router.get("/lists/:id", listController.show);
 
 router.post("/lists/:id/destroy", listController.destroy);
 
+router.post("/lists/:id/update", listController.update);
+
 module.exports = router;

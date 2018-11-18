@@ -49,7 +49,6 @@ describe("routes : lists", () => {
             request.post(options, (err, res, body) => {
                 List.findOne({where: {title: "Daddy's List"}})
                 .then((list) => {
-                    console.log("list", list)
                     expect(res.statusCode).toBe(303);
                     expect(list.title).toBe("Daddy's List");
                     done();
@@ -100,6 +99,33 @@ describe("routes : lists", () => {
             });
           });
    
+        });
+   
+      });
+
+      describe("POST /lists/:id/update", () => {
+
+        it("should update the list with the given value", (done) => {
+           const options = {
+              url: `${base}${this.list.id}/update`,
+              form: {
+                title: "Stephen's List",
+              }
+            };
+   
+            request.post(options,
+              (err, res, body) => {
+   
+              expect(err).toBeNull();
+   
+              List.findOne({
+                where: { id: this.list.id }
+              })
+              .then((list) => {
+                expect(list.title).toBe("Stephen's List");
+                done();
+              });
+            });
         });
    
       });

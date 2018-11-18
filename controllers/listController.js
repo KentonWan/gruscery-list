@@ -43,14 +43,25 @@ module.exports = {
             });
         }, 
     
-        destroy(req, res, next){
-            listQueries.deleteList(req.params.id, (err, topic) => {
-              if(err){
-                res.redirect(500, `/lists/${list.id}`)
+    destroy(req, res, next){
+        listQueries.deleteList(req.params.id, (err, topic) => {
+            if(err){
+            res.redirect(500, `/lists/${list.id}`)
+            } else {
+            res.redirect(303, "/lists/")
+            }
+        });
+    }, 
+
+    update(req, res, next) {
+
+        listQueries.updateList(req.params.id, req.body, (err, list) => {
+            if(err || list == null){
+                res.redirect(404, `/lists/${req.params.id}/`);
               } else {
-                res.redirect(303, "/lists")
+                res.send("updated name");
               }
-            });
-          }
+        })
+    }
 
 }
