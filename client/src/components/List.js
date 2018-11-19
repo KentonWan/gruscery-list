@@ -40,6 +40,7 @@ class List extends Component {
           });
         console.log("delete",response);
         const body = await response.text();
+        this.setState({redirect: true});
 
       };
 
