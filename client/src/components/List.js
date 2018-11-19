@@ -58,8 +58,9 @@ class List extends Component {
         const body = await response.text();
         console.log("update body", body);
         this.setState({newTitle: ""});
-        this.getList();
-
+        this.getList()
+            .then(res => this.setState({ list: res.list }))
+            .catch(err => console.log(err));
       };
 
 

@@ -15,7 +15,7 @@ module.exports = {
             if(err){
                 res.redirect(500, "/lists")
             } else {
-                res.redirect(303, "/lists/")
+                res.send("lists created")
             }
         });
     },

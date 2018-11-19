@@ -37,7 +37,11 @@ class Lists extends Component {
             body: JSON.stringify({ title: this.state.listTitle }),
           });
         console.log(response);
-        const body = await response.json();
+        const body = await response.text();
+        this.getAllLists()
+          .then(res => this.setState({ lists: res.lists }))
+          .catch(err => console.log(err));
+          
 
         this.setState({listTitle: ''});
       };
