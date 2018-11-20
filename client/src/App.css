@@ -1,16 +1,47 @@
 .App {
   text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
+.container {
+  padding: 0;
 }
 
+.App .navbar {
+  height: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: whitesmoke;
+  font-size: 0.5em;
+}
+
+.App .main-container {
+  margin-top: 100px;
+}
+
+.link {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.App-intro {
+  font-size: large;
+}
+
+.App-container {
+
+  border-color: white;
+  border-style: solid 10px;
+
+}
+
+.point {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

@@ -1,0 +1,46 @@
+h4 {
+    font-style: italic;
+}
+
+.item {
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.item p {
+    margin-right: 5px;
+}
+
+.item btn-danger {
+    margin-left: 30px;
+}
+
+.update-btn {
+    margin-left: 2px;
+    margin-right: 20px;
+}
+
+.delete-btn {
+    margin-left: 20px;
+    font-size: 0.9em
+}
+
+.purchase-btn {
+    font-size: 0.9em;
+}
+
+.unpurchase-btn {
+    font-size: 0.9em;
+}
+
+.newItemForm {
+    font-size: 0.9em;
+}
+
+.new-item-input {
+    font-size: 0.9em;
+}
+
+.newItem {
+    margin-top: 20px;
+}

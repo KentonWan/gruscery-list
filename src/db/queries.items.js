@@ -5,7 +5,8 @@ module.exports = {
 
     getItems(id, callback) {
         return Item.all({
-            where: {listId: id}
+            where: {listId: id},
+            order: [['id', 'ASC']]
         })
         .then((items) => {
             callback(null, items)

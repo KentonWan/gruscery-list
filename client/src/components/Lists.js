@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import {Link} from 'react-router-dom';
 
+import './Lists.css';
+
 class Lists extends Component {
     constructor(props){
         super(props);
@@ -54,12 +56,12 @@ class Lists extends Component {
 
         return(
             <div className="container">
-            <h4> Lists </h4>
+            <h4> GrUScery Lists: </h4>
             <div className="lists">
                 {
                  this.state.lists.map((list,index) =>
                     <Link to={`/lists/${list.id}`} key={index} className="list-link">
-                        <p>{list.title}{list.id}</p>
+                        <p className="list-title">{list.title}</p>
                     </Link>
                     )
                 }
@@ -69,6 +71,7 @@ class Lists extends Component {
                 <input
                     type="text"
                     name="title"
+                    className="new-title-form"
                     value={this.state.listTitle}
                     onChange={(e) => this.setState({ listTitle: e.target.value})}
                     placeholder="New List Title">

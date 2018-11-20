@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 
 import Item from "./Item.js";
 
+import "./List.css";
+
 class List extends Component {
     constructor(props){
         super(props);
@@ -79,15 +81,20 @@ class List extends Component {
 
         return(
             <div className="container">
-            <h4>{this.state.list.title}</h4>
-            <form onSubmit={this.onDelete}>
-                <button type="submit" className="btn btn-danger">Delete List</button>
-            </form>
-            <form onSubmit={this.editTitle}>
-                <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
-                <button type="submit" className="btn btn-danger">Edit List Title</button>
-            </form>
+            <h3 className="header">{this.state.list.title} grUScery list</h3>
+            <div className="list-container">
+                <form className="list-form" onSubmit={this.editTitle}>
+                    <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
+                    <button type="submit" className="btn btn-warning edit-button">Edit List Title</button>
+                </form>
+                <form className="list-form" onSubmit={this.onDelete}>
+                    <button type="submit" className="btn btn-danger delete-button">Delete List</button>
+                </form>
+            </div>
+            <hr></hr>
+
             <Item listId={this.props.match.params.id} />
+
             </div>
         )
     }

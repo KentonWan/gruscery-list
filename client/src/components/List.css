@@ -1,0 +1,22 @@
+.header {
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.list-form {
+
+    display: inline-block;
+    font-size: 1em;
+}
+
+.list-container {
+    margin-bottom: 30px;
+}
+
+.delete-button {
+    margin-left: 20px;
+}
+
+.edit-button {
+    margin-left: 5px;
+}

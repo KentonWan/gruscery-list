@@ -1,0 +1,26 @@
+.lists {
+    font-size: 1em;
+}
+
+.list-link {
+    text-decoration: none;
+    color: black;
+}
+
+.list-link:hover {
+    color: green;
+    text-decoration: none;
+}
+
+.list-title {
+    margin-bottom: 5px;
+}
+
+.new-title-form {
+    font-size: 0.9em;
+}
+
+.btn {
+    font-size: 0.9em;
+    margin-left: 5px;
+}

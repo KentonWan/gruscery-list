@@ -64,7 +64,7 @@ render() {
       <div className="App">
         <Navigation />
 
-        <main>
+        <main className="main-container">
           <Route exact path="/" component={Landing} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/SignIn" component={SignIn} />
