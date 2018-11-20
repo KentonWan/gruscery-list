@@ -3,6 +3,7 @@ import {Link, Route } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 import "./Item.css";
+import UpdateItem from './UpdateItem.js';
 
 class Item extends Component {
     constructor(props){
@@ -12,7 +13,6 @@ class Item extends Component {
             description: '',
             purchased: false,
             newDescription: '',
-            descriptionSpace: ''
         }
         
 
@@ -31,7 +31,14 @@ class Item extends Component {
         if (response.status !== 200) throw Error(body.message);
         console.log("getItems",body.items);
         return body;
-      }; 
+      };
+      
+    updateItem = () => {
+        this.getItems()
+          .then(res => this.setState({ items: res.items }))
+          .catch(err => console.log(err));
+        
+    }
 
     onSubmit = async e => {
 
@@ -50,27 +57,6 @@ class Item extends Component {
           .catch(err => console.log(err));  
 
         this.setState({description: ''});
-      };
-
-      editItem =  async (itemId, e) => {
-
-        e.preventDefault();
-
-        this.setState({newDescription: e.target.value})
-
-        const response = await fetch(`/lists/${this.props.listId}/items/${itemId}/update`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ description: this.state.newDescription }),
-          });
-        console.log("update",response);
-        const body = await response.text();
-        this.setState({newDescription: ""});
-        this.getItems()
-            .then(res => this.setState({ items: res.items }))
-            .catch(err => console.log(err));
       };
 
       purchasedItem =  async (itemId, e) => {
@@ -138,11 +124,9 @@ class Item extends Component {
                     <div className="item" key={index}>
 
                         <p className="item" key={index}>{item.description}</p>
-
-                        <form className="item" onSubmit={this.editItem.bind(this, item.id)}>
-                            <input type="text" name="description"  value={this.state.newDescription} onChange={e => this.setState({ newDescription: e.target.value})} placeholder="" />
-                            <button type="submit" className="btn btn-warning update-btn">Update Item</button>
-                        </form>
+                        <div className="item">
+                            <UpdateItem  updateItem = {this.updateItem} itemId={item.id} />
+                        </div>
 
                         {(
                         item.purchased ? 
