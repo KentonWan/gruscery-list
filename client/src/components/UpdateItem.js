@@ -26,7 +26,6 @@ class UpdateItem extends Component {
           });
         console.log("update",response);
         const body = await response.text();
-        // this.props.getItems();
         this.props.updateItem();
         this.setState({newDescription: ""});
 
