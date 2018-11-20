@@ -133,28 +133,32 @@ class Item extends Component {
             <div className="container">
             <h4>Items:</h4>
             <div className="items">
+                <table>
+                    <tbody>
                 {
                  this.state.items.map((item,index) =>
                     <div className="item" key={index}>
+                        <tr>
+                        <td><p className="item" key={index}>{item.description}</p></td>
 
-                        <p className="item" key={index}>{item.description}</p>
-
-                        <form className="item" onSubmit={this.editItem.bind(this, item.id)}>
+                        <td><form className="item" onSubmit={this.editItem.bind(this, item.id)}>
                             <input type="text" name="description"  value={this.state.newDescription} onChange={e => this.setState({ newDescription: e.target.value})} placeholder="" />
                             <button type="submit" className="btn btn-warning update-btn">Update Item</button>
-                        </form>
+                        </form></td>
 
-                        {(
+                        <td>{(
                         item.purchased ? 
                         <button className="btn btn-secondary item unpurchase-btn" type="button" onClick={this.unpurchasedItem.bind(this, item.id)} value="Unmark as Purchased">Unmark as Purchased</button> :
                         <button className="btn btn-primary item purchase-btn" type="button" onClick={this.purchasedItem.bind(this, item.id)} value="Mark as Purchased">Mark as Purchased</button>
-                        )}
+                        )}</td>
 
-                        <button className="btn btn-danger item delete-btn" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button> 
-
+                        <td><button className="btn btn-danger item delete-btn" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button></td>
+                        </tr>
                     </div>
                     )
                 }
+                </tbody>
+                </table>
             </div>
             <div className="newItem">
                 <form className="newItemForm" onSubmit={this.onSubmit}>

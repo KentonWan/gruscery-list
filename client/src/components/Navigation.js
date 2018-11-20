@@ -39,7 +39,7 @@ class Navigation extends Component {
                                     <Link className="link list-link" to='/Lists'>Gr'us'cery Lists</Link>
                                 </li>
                                 <li className="nav-item-signedIn">
-                                    <SignOut setUser={this.setUser.bind(this)}/>
+                                    <SignOut setUser={this.setUser.bind(this)} />
                                     </li> 
                             </div>
                             : 
