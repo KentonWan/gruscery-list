@@ -127,7 +127,7 @@ class Item extends Component {
 
         return(
             <div className="container">
-            <h6>Items on List:</h6>
+            <h4>Items on List:</h4>
             <div className="items">
                 {
                  this.state.items.map((item,index) =>
@@ -152,6 +152,7 @@ class Item extends Component {
                 <input
                     type="text"
                     name="description"
+                    size="40"
                     value={this.state.description}
                     onChange={(e) => this.setState({ description: e.target.value})}
                     placeholder="Item Description (include quantity)">
