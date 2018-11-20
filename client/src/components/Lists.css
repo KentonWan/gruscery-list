@@ -4,10 +4,12 @@
 
 .list-link {
     text-decoration: none;
-    color: black;
+    color: green;
+    font-size: 1.5em;
 }
 
 .list-link:hover {
+    font-weight: bold;
     color: green;
     text-decoration: none;
 }
@@ -23,4 +25,12 @@
 .btn {
     font-size: 0.9em;
     margin-left: 5px;
+}
+
+.lists-header {
+    font-style: normal;
+}
+
+.container-lists {
+    padding-top: 20px;
 }

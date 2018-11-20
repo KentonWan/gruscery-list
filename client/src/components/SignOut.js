@@ -3,6 +3,8 @@ import { Redirect, Link } from 'react-router-dom';
 
 import Landing from "./Landing.js";
 
+import './SignOut.css';
+
 class SignOut extends Component {
     constructor(props){
         super(props);
@@ -33,8 +35,8 @@ class SignOut extends Component {
         }
 
         return(
-            <div>
-                <button type="button" className="signOut" onClick={this.signOut}>SignOut</button>
+            <div className="signOut-container">
+                <button type="button" className="btn btn-danger" onClick={this.signOut}><span className="signOut-btn">SignOut</span></button>
             </div>
         )
             

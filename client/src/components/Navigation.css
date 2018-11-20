@@ -5,5 +5,25 @@ a.nav-item:hover {
 a.link:hover {
     text-decoration: none;
     color: green;
-    font-weight: 300;
+}
+
+.nav-item-signedOut{
+    display: inline-block;
+    width: 100px
+}
+
+.logo-title {
+    font-size: 1.5em;
+}
+
+.navbar-nav {
+    margin-right: 0px;
+}
+
+.list-link {
+    font-size: 2em;
+}
+
+.nav-item-signedIn{
+    display: inline-block;
 }

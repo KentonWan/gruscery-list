@@ -55,8 +55,8 @@ class Lists extends Component {
     render () {
 
         return(
-            <div className="container">
-            <h4> GrUScery Lists: </h4>
+            <div className="container-lists">
+            <h4 className="lists-header"> Current Gr'us'cery Lists: </h4>
             <div className="lists">
                 {
                  this.state.lists.map((list,index) =>

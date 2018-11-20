@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './SignUp.css';
+
 
 class SignUpPage extends Component {
     constructor(props) {
@@ -42,15 +44,17 @@ class SignUpPage extends Component {
             <div className="container col-md-4 offset-md-4">
                 <form className="signUpForm" onSubmit={this.onSubmit}>
                     <div className="form-group row">
-                        <div className="col-sm-10 offset-sm-1">
+                        <div className="col-sm-10 ">
                             <input name="email"
                                 value={this.state.email}
+                                className="sign-up-field"
                                 onChange={e => this.setState({ email: e.target.value})}
                                 type="text"
                                 placeholder="Email Address"
                             />
                             <input
                                 name = "password"
+                                className="sign-up-field"
                                 value={this.state.password}
                                 onChange={e => this.setState({password: e.target.value})}
                                 type="password"

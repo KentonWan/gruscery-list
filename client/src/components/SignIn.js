@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './SignIn.css';
 
 
 class SignInForm extends Component {
@@ -40,8 +41,9 @@ class SignInForm extends Component {
             <div className="container col-md-4 offset-md-4">
                 <form className="signInForm" onSubmit={this.onSubmit}>
                     <div className="form-group row">
-                        <div className="col-sm-10 offset-sm-1">
+                        <div className="col-sm-10">
                             <input name="email"
+                                className="sign-in-field"
                                 value={this.state.email}
                                 onChange={e => this.setState({ email: e.target.value})}
                                 type="text"
@@ -49,12 +51,13 @@ class SignInForm extends Component {
                             />
                             <input
                                 name = "password"
+                                className="sign-in-field"
                                 value={this.state.password}
                                 onChange={e => this.setState({password: e.target.value})}
                                 type="password"
                                 placeholder="Password"
                             />
-                                                <button type="submit" className="btn btn-success"> Sign In</button>
+                            <button type="submit" className="btn btn-info text-center"> Sign In</button>
 
                         </div>
                     </div>          

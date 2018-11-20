@@ -1,6 +1,10 @@
 .App-logo {
-    height: 20vmin;
+    height: 10vmin;
   }
+
+.App-title {
+  display: inline-block;
+}
   
   .App-header {
     background-color: #009700;
@@ -12,6 +16,7 @@
     font-size: calc(10px + 2vmin);
     color: white;
     padding-bottom: 10px;
+    padding-top: 10px;
   }
   
   .App-name {
@@ -20,6 +25,10 @@
 
   .App-subtitle {
       margin-bottom: 0px;
+  }
+
+  .content {
+    margin-top: 30px;
   }
   
   @keyframes App-logo-spin {

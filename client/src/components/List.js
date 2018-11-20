@@ -81,7 +81,7 @@ class List extends Component {
 
         return(
             <div className="container">
-            <h3 className="header">{this.state.list.title} grUScery list</h3>
+            <h3 className="header">{this.state.list.title}</h3>
             <div className="list-container">
                 <form className="list-form" onSubmit={this.editTitle}>
                     <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
