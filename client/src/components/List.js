@@ -2,6 +2,8 @@ import React, { Component} from 'react';
 import {Link, Route } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
+import Item from "./Item.js";
+
 class List extends Component {
     constructor(props){
         super(props);
@@ -85,6 +87,7 @@ class List extends Component {
                 <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
                 <button type="submit" className="btn btn-danger">Edit List Title</button>
             </form>
+            <Item listId={this.props.match.params.id} />
             </div>
         )
     }

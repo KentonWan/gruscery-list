@@ -1,4 +1,6 @@
 const List = require("./models").List;
+const Item = require("./models").Item;
+
 
 module.exports = {
 
@@ -26,7 +28,12 @@ module.exports = {
     },
 
     getList(id, callback){
-        return List.findById(id)
+        return List.findById(id, {
+            include: [{
+                model: Item,
+                as: "items"
+            }]
+        })
         .then((list) => {
           callback(null, list);
         })

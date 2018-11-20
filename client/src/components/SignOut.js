@@ -1,8 +1,12 @@
 import React, { Component} from 'react';
+import { Redirect } from 'react-router-dom';
 
 class SignOut extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            signedOut: false
+        }
     }
 
     signOut = async e => {
@@ -14,11 +18,16 @@ class SignOut extends Component {
         console.log(response);
         const body = await response.text();        
         this.props.setUser(null);
+        this.setState({signedOut: true});
 
 
     };
 
     render () {
+
+        if(this.state.signedOut) {
+            return <Redirect to="/" />
+        }
 
         return(
             <button

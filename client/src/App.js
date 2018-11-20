@@ -8,6 +8,8 @@ import SignUp from './components/SignUp.js';
 import SignIn from './components/SignIn.js';
 import Lists from './components/Lists.js';
 import List from './components/List.js';
+import Item from './components/Item.js';
+
 
 
 
