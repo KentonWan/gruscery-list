@@ -131,7 +131,7 @@ class Item extends Component {
             <div className="items">
                 {
                  this.state.items.map((item,index) =>
-                    <div>
+                    <div key={index}>
                         <p className="item" key={index}>{item.description}</p>
                         {(
                         item.purchased ? 

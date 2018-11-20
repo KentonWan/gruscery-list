@@ -1,11 +1,13 @@
 import React, { Component} from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+
+import Landing from "./Landing.js";
 
 class SignOut extends Component {
     constructor(props){
         super(props);
         this.state = {
-            signedOut: false
+            redirect: false
         }
     }
 
@@ -16,27 +18,26 @@ class SignOut extends Component {
             method: 'GET',
           });
         console.log(response);
-        const body = await response.text();        
+        this.setState({redirect: true});
         this.props.setUser(null);
-        this.setState({signedOut: true});
+        const body = await response.text(); 
+        console.log(body);       
 
 
     };
 
     render () {
 
-        if(this.state.signedOut) {
+        if(this.state.redirect) {
             return <Redirect to="/" />
         }
 
         return(
-            <button
-                type="button"
-                onClick={this.signOut}
-            >
-            Sign Out
-            </button>
+            <div>
+                <button type="button" className="signOut" onClick={this.signOut}>SignOut</button>
+            </div>
         )
+            
     }
 }
 
