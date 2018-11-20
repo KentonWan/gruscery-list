@@ -3,6 +3,7 @@ import {Link, Route } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 import "./Item.css";
+import UpdateItem from './UpdateItem.js';
 
 class Item extends Component {
     constructor(props){
@@ -138,11 +139,14 @@ class Item extends Component {
                     <div className="item" key={index}>
 
                         <p className="item" key={index}>{item.description}</p>
+                        <div className="item">
+                        <UpdateItem  getItems={this.getItems} itemId={item.id} />
+                        </div>
 
-                        <form className="item" onSubmit={this.editItem.bind(this, item.id)}>
+                        {/* <form className="item" onSubmit={this.editItem.bind(this, item.id)}>
                             <input type="text" name="description"  value={this.state.newDescription} onChange={e => this.setState({ newDescription: e.target.value})} placeholder="" />
                             <button type="submit" className="btn btn-warning update-btn">Update Item</button>
-                        </form>
+                        </form> */}
 
                         {(
                         item.purchased ? 
