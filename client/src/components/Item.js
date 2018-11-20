@@ -125,13 +125,8 @@ class Item extends Component {
 
                         <p className="item" key={index}>{item.description}</p>
                         <div className="item">
-                        <UpdateItem  updateItem = {this.updateItem} getItems={this.getItems} itemId={item.id} />
+                            <UpdateItem  updateItem = {this.updateItem} itemId={item.id} />
                         </div>
-
-                        {/* <form className="item" onSubmit={this.editItem.bind(this, item.id)}>
-                            <input type="text" name="description"  value={this.state.newDescription} onChange={e => this.setState({ newDescription: e.target.value})} placeholder="" />
-                            <button type="submit" className="btn btn-warning update-btn">Update Item</button>
-                        </form> */}
 
                         {(
                         item.purchased ? 
