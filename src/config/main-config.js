@@ -13,7 +13,7 @@ module.exports = {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(express.static(path.join(__dirname,"..","assets")));
     app.use(session({
-      secret: process.env.cookieSecret,
+      secret: "secret",
       resave: false,
       saveUninitialized: false,
       cookie: { maxAge: 1.21e+9 }
