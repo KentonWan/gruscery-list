@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const app = express();
+const app = require('./app.js');
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const appConfig = require("./src/config/main-config.js");
 const routeConfig = require("./src/config/route-config.js");
 
-appConfig.init(app, express);
-routeConfig.init(app)
+appConfig.init(app,express);
+routeConfig.init(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
