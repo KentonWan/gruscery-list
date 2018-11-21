@@ -72,8 +72,8 @@ render() {
           <Route path="/Lists/:id" component={List} />
         </main>
         
-        {/* <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
+        <p>{this.state.response}</p>
+        {/* <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>
           </p>
