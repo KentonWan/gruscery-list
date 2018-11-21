@@ -11,9 +11,21 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
+const staticRoutes = require("./routes/static");
+const userRoutes = require("./routes/users");
+const listRoutes = require("./routes/lists");
+const itemRoutes = require("./routes/items");
+
+
+app.use(staticRoutes);
+app.use(userRoutes);
+app.use(listRoutes);
+app.use(itemRoutes);
+
+
+
 if (process.env.NODE_ENV === 'production') {
 
-  
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
   // Handle React routing, return all requests to React app
