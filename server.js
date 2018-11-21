@@ -16,13 +16,13 @@ const userRoutes = require("./routes/users");
 const listRoutes = require("./routes/lists");
 const itemRoutes = require("./routes/items");
 
+appConfig.init(app,express);
 
 app.use('/',staticRoutes);
 app.use('/',userRoutes);
 app.use('/',listRoutes);
 app.use('/',itemRoutes);
 
-appConfig.init(app,express);
 
 if (process.env.NODE_ENV === 'production') {
 
