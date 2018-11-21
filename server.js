@@ -9,14 +9,15 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// API calls
+//initialize node app
+appConfig.init(app,express);
 
+// API calls
 const staticRoutes = require("./routes/static");
 const userRoutes = require("./routes/users");
 const listRoutes = require("./routes/lists");
 const itemRoutes = require("./routes/items");
 
-appConfig.init(app,express);
 
 app.use('/',staticRoutes);
 app.use('/',userRoutes);
