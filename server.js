@@ -18,8 +18,8 @@ const itemRoutes = require("./routes/items");
 
 
 app.use('/',staticRoutes);
-app.use('/users',userRoutes);
-app.use('lists',listRoutes);
+app.use('/',userRoutes);
+app.use('/',listRoutes);
 app.use('/',itemRoutes);
 
 
