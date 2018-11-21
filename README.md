@@ -1,44 +1,168 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# GR'US'CERY LIST
 
-In the project directory, you can run:
+A grocery list web app that can be shared in real-time with other users.  Users are able to create shopping lists with a list of items that they can update, delete and mark as purchased. Built with React.js and Node.js using TDD and RESTful API and Postgres for data management. 
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To get you started you can first clone the repository to your local machine: 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+$ git clone https://github.com/KentonWan/gruscery-list.git
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Also decide whether you will use `yarn` or `npm` as my preference is `npm` and what the app was built on.  
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run, first make sure you have Node installed. You can type `node -v` to find your version:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+$ node -v 
+v8.11.2
+```
+If you do not have Node installed. You can download from their website: https://nodejs.org/en/download/ or you can install via Homebrew (need to install Homebrew first fo course). Here's a link to a guide: https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You will also need to have Postgres installed on your computer for the data management.  I recommend installation via homebrew.  Here's a link: https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
 
-### `npm run eject`
+Please look at `package.json` file for all dependencies that you will need to install.  For example you will need *concurrently* which can be installed via npm: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+$ npm i concurrently
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+See deployment for notes on how to deploy the project on a live system.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Once you have cloned and downloaded all necessary dependencies. You will need to create a `.env` file as your `secret` for the `express-session` middleware will be securely stored there.  Ensure that `.env` is listed in your .gitignore file. 
 
-## Learn More
+^main-config.js^
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+app.use(session({
+            secret: "process.env.Secret",
+            resave: false,
+            saveUninitialized: false,
+            cookie: {maxAge: 1.21e+9}
+        }));
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once the repository has been cloned, all dependencies installed, your database created and `.env` file created properly you can then run the app developmentally on your machine.
+
+```
+$ npm run dev
+```
+It should appear on http://localhost:3000.  
+
+![screen shot](/Users/kentonwan/Desktop/Screen Shot 2018-11-21 at 10.30.05 AM.png "screenshot")
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Test-Driven Development(TDD) was used in building this app utilizing Jasmine (https://jasmine.github.io/). All the tests can be found in the `/client/spec` file. Unit and integration tests were written for the different models with CRUD operations in mind.  From the command line you can use `npm test {test file pathway` to test. 
+
+```
+$ npm test ./client/src/spec/integration/lists_spec.js
+```
+
+### Break down into end to end tests
+
+The unit tests test that each respective model is created properly as well as proper relationships with other models if applicable.  
+
+The integration tests for all the CRUD operations for each respective model. Below is an example for the `lists_spec` file. 
+
+```
+describe("routes : lists", () => {
+
+    beforeEach((done) => {
+        
+        this.list;
+        sequelize.sync({force: true}).then((res) => {
+
+                List.create({
+                    title: "Mommy's List",
+                })
+                .then((list) => {
+                    this.list = list;
+                    done();
+                })
+                .catch((err) => {
+                console.log(err);
+                done();
+            })
+        });
+    });
+
+    describe("GET /lists/:id", () => { //GET request for a specific list
+
+        it("should render a view with the selected list", (done) => {
+          request.get(`${base}${this.list.id}`, (err, res, body) => {
+            expect(err).toBeNull();
+            done();
+          });
+        });
+   
+      });
+
+    describe("POST /lists/create", () => {  //POST request to create a new list
+        const options = {
+            url: "http://localhost:5000/lists/create",
+            form: {
+                title: "Daddy's List",
+            }
+        };
+
+        it("should create a new list and redirect", (done) => {
+
+            request.post(options, (err, res, body) => {
+                List.findOne({where: {title: "Daddy's List"}})
+                .then((list) => {
+                    expect(list.title).toBe("Daddy's List");
+                    done();
+                })
+                .catch((err) => {
+                    console.log(err);
+                    done();
+                })
+            })
+        })
+    }
+    
+    );
+    ```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [React](https://reactjs.org/) - The front-end library
+* [Node](https://nodejs.org/en/) - Javascript runtime for server-side management
+* [Postgresql](https://www.postgresql.org/) - For database management
+
+## Author
+
+* **Kenton Wan** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+
+## Acknowledgments
+
+* Esau Silva who provided the basic structure for the application (https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0)
+
+
