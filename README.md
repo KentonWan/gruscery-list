@@ -1,6 +1,8 @@
 
 # GR'US'CERY LIST
 
+![Screenshot of Homepage](https://i.imgur.com/zPY3Pao.png)
+
 A grocery list web app that can be shared in real-time with other users.  Users are able to create shopping lists with a list of items that they can update, delete and mark as purchased. Built with React.js and Node.js using TDD and RESTful API and Postgres for data management. 
 
 ## Getting Started
@@ -38,7 +40,7 @@ See deployment for notes on how to deploy the project on a live system.
 
 Once you have cloned and downloaded all necessary dependencies. You will need to create a `.env` file as your `secret` for the `express-session` middleware will be securely stored there.  Ensure that `.env` is listed in your .gitignore file. 
 
-^main-config.js^
+**main-config.js**
 
 ```
 app.use(session({
@@ -56,7 +58,7 @@ $ npm run dev
 ```
 It should appear on http://localhost:3000.  
 
-![screen shot](/Users/kentonwan/Desktop/Screen Shot 2018-11-21 at 10.30.05 AM.png "screenshot")
+![Screenshot including address](https://i.imgur.com/S0U3MGe.png)
 
 Say what the step will be
 
@@ -80,7 +82,7 @@ Test-Driven Development(TDD) was used in building this app utilizing Jasmine (ht
 $ npm test ./client/src/spec/integration/lists_spec.js
 ```
 
-### Break down into end to end tests
+### Example
 
 The unit tests test that each respective model is created properly as well as proper relationships with other models if applicable.  
 
@@ -144,7 +146,7 @@ describe("routes : lists", () => {
     }
     
     );
-    ```
+```
 
 ## Deployment
 
