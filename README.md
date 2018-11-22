@@ -3,7 +3,9 @@
 
 ![Screenshot of Homepage](https://i.imgur.com/zPY3Pao.png)
 
-A grocery list web app that can be shared in real-time with other users.  Users are able to create shopping lists with a list of items that they can update, delete and mark as purchased. Built with React.js and Node.js using TDD and RESTful API and Postgres for data management. 
+https://gruscery-list.herokuapp.com/
+
+A grocery list web app that can be shared in real-time with other users.  Users are able to create shopping lists with a list of items that can be updated, deleted and mark as purchased. Built with React.js and Node.js using TDD and RESTful API and Postgres for data management. 
 
 ## Getting Started
 
@@ -14,7 +16,7 @@ $ git clone https://github.com/KentonWan/gruscery-list.git
 
 ```
 
-Also decide whether you will use `yarn` or `npm` as my preference is `npm` and what the app was built on.  
+Also decide whether you will use `yarn` or `npm`.  My preference is `npm` and what the app was built on.  
 
 ### Prerequisites
 
@@ -38,7 +40,7 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Installing
 
-Once you have cloned and downloaded all necessary dependencies. You will need to create a `.env` file as your `secret` for the `express-session` middleware will be securely stored there.  Ensure that `.env` is listed in your .gitignore file. 
+Once you have cloned and downloaded all necessary dependencies. You will need to create a `.env` file for your environmental variables. For example, the `secret` for the `express-session` middleware will be securely stored there.  Ensure that `.env` is listed in your .gitignore file. 
 
 **main-config.js**
 
@@ -60,19 +62,17 @@ It should appear on http://localhost:3000.
 
 ![Screenshot including address](https://i.imgur.com/S0U3MGe.png)
 
-Say what the step will be
+Create a user by signing up in top right screen. Then click on the `Gr'us'cery Lists` link in the top right of the page
 
-```
-Give the example
-```
+![Gr'us'cery Lists](https://i.imgur.com/rCLu2ix.png)
 
-And repeat
+You will then see a list of grocery lists you can choose from as well as create your own. 
 
-```
-until finished
-```
+![Lists of gr'us'cery lists](https://i.imgur.com/lEJOkB0.png)
 
-End with an example of getting some data out of the system or using it for a little demo
+Click on one and you will see the option to change the title of the gr'us'cery list as well as delete it.  You will also see a list of items on the list with the functionality to add an item, update the item, mark an item as purchased/unpurchased and delete an item. 
+
+![Item](https://i.imgur.com/0o7rcb0.png)
 
 ## Running the tests
 
@@ -150,7 +150,31 @@ describe("routes : lists", () => {
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The owner deployed the app using Heroku, but you are free to use your preference. 
+
+For Heroku, head over to Heroku and log in (or open an account if you don’t have one).
+
+Create a new app and give it a name
+
+![Create a new app](https://i.imgur.com/QSZwYOR.png)
+
+Click into the **Deploy** tab and there you will find instructions how to deploy the app
+
+![Deploy Tab](https://i.imgur.com/tqufBT5.png)
+
+![Deploy Instructions](https://i.imgur.com/Mu5Q8OZ.png)
+
+You will also need to install **Postgres** for your deployed app. So click on **Overview** and then *Configure Add-ons*
+
+![Configre Add-ons](https://i.imgur.com/r2qH07C.png)
+
+Type in *Postgres* and *Heroku Postres* should come up and add it on. 
+
+![[Heroku Postgres](https://i.imgur.com/VEx5Ay3.png)]
+
+Finally you will also need to add in your environmental variables stored in the `.env` file which does not get pushed up. Click on **Settings** and then on the *Reveal Config Var* button.  Add in your respective config variables like NODE_ENV, secret and your DATABASE_URL which is added when you add Heroku Postgres. 
+
+![Config Vars](https://i.imgur.com/HkXYY53.png)
 
 ## Built With
 
