@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import './SignIn.css';
 
@@ -10,7 +11,7 @@ class SignInForm extends Component {
             email: '',
             password: '',
             user: '',
-            message: ''
+            redirect: false
 
         }
     }
@@ -26,20 +27,31 @@ class SignInForm extends Component {
             body: JSON.stringify({ email: this.state.email, password: this.state.password }),
           });
         console.log(response);
-        const body = await response.json();
-        console.log("body", body)
-        (body.message ? this.setState({message: body.message}) : this.setState({user: body}))
-        window.alert(body.message);
-        // this.setState({user: body});
-        // this.props.setUser(body);
+        if(response.status == 401) {
+            window.alert("Invalid email or password")
+        } else {
 
+            const body = await response.json();
+            console.log("body", body)
+            this.setState({user: body});
+            this.props.setUser(body);
+    
+    
+        }
 
         this.setState({email: '', password: ''});
+
+
+
 
       };
 
 
     render() {
+
+        if(this.state.redirect) {
+            return <Redirect to="/" />
+        }
 
         return (
             <div className="container col-md-4 offset-md-4">

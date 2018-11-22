@@ -26,10 +26,16 @@ class SignUpPage extends Component {
             body: JSON.stringify({ email: this.state.email, password: this.state.password }),
           });
         console.log(response);
+    
         const body = await response.json();
-        this.setState({user: body});
-        this.props.setUser(body);
+        console.log(body);
+        if(body.error == "Validation error") {
+            window.alert("Email is already used by another user")
+        } else {
 
+            this.setState({user: body});
+            this.props.setUser(body);
+        }
 
         this.setState({email: '', password: ''});
 

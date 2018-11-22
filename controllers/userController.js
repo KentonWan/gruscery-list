@@ -14,7 +14,8 @@ module.exports = {
 
         userQueries.createUser(newUser, (err, user) => {
             if(err) {
-                console.log(err);
+                console.log(err.message);
+                res.send({error: err.message});
             } else {
 
                 passport.authenticate("local")(req, res, () => {
@@ -27,8 +28,7 @@ module.exports = {
 
     signIn(req,res,next){
         passport.authenticate("local")(req,res, function () {
-            if(req.false) {
-                res.send({message: "Invalid email or password"})
+            if(!req.user) {
                 console.log("sign in failed");
             } else {
                 console.log("You've signed in successfully!")
