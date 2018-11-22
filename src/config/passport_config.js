@@ -18,6 +18,7 @@ module.exports = {
         .then((user) => {
   
           if (!user || !authHelper.comparePass(password, user.password)) {
+            console.log("error in passport config")
             return done(null, false, { message: "Invalid email or password" });
           }
           return done(null, user);

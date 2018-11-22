@@ -9,7 +9,8 @@ class SignInForm extends Component {
         this.state = {
             email: '',
             password: '',
-            user: ''
+            user: '',
+            message: ''
 
         }
     }
@@ -26,8 +27,11 @@ class SignInForm extends Component {
           });
         console.log(response);
         const body = await response.json();
-        this.setState({user: body});
-        this.props.setUser(body);
+        console.log("body", body)
+        (body.message ? this.setState({message: body.message}) : this.setState({user: body}))
+        window.alert(body.message);
+        // this.setState({user: body});
+        // this.props.setUser(body);
 
 
         this.setState({email: '', password: ''});

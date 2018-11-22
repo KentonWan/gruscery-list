@@ -27,7 +27,8 @@ module.exports = {
 
     signIn(req,res,next){
         passport.authenticate("local")(req,res, function () {
-            if(!req.user) {
+            if(req.false) {
+                res.send({message: "Invalid email or password"})
                 console.log("sign in failed");
             } else {
                 console.log("You've signed in successfully!")
