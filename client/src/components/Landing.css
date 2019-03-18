@@ -5,6 +5,24 @@
 .App-title {
   display: inline-block;
 }
+
+h1 {
+
+  color: #009700;
+  opacity: 1.0;
+  
+}
+
+h5 {
+  color: #009700;
+  opacity: 1.0;
+
+}
+
+.row {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
   
   .App-header {
     background-color: #009700;
@@ -39,4 +57,3 @@
       transform: rotate(360deg);
     }
   }
-  
