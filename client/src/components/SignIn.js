@@ -57,7 +57,7 @@ class SignInForm extends Component {
             <div className="container col-md-4 offset-md-4">
                 <form className="signInForm" onSubmit={this.onSubmit}>
                     <div className="form-group row">
-                        <div className="col-sm-10">
+                        <div className="col-sm-10" id="field">
                             <input name="email"
                                 className="sign-in-field"
                                 value={this.state.email}

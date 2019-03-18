@@ -1,7 +1,7 @@
 .signInForm {
     margin-top: 10px;
     margin-right: 0px;
-    margin-left: 0px
+    margin-left: 0px;
 }
 
 .sign-in-field {
@@ -9,4 +9,8 @@
 }
 .btn {
     margin-top: 2px;
+}
+
+#field {
+    background-color: rgba(255,255,255,0);
 }

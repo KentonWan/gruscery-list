@@ -4,7 +4,7 @@ a.nav-item:hover {
 
 a.link:hover {
     text-decoration: none;
-    color: green;
+    text-shadow: 0.5px 0.5px gray;
 }
 
 .nav-item-signedOut{
@@ -20,10 +20,16 @@ a.link:hover {
     margin-right: 0px;
 }
 
-.list-link {
+#nav-lists-link {
     font-size: 2em;
+    color: white;
 }
 
 .nav-item-signedIn{
     display: inline-block;
+    color: white;
+}
+
+.logo-title {
+    color: white;
 }

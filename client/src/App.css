@@ -14,15 +14,13 @@
 }
 
 .App .navbar {
-  height: 80px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: whitesmoke;
+
   font-size: 0.5em;
+  background-color: rgba(0,0,0,0);
 }
 
 .App .main-container {
-  margin-top: 80px;
+  padding-top: 100px;
 }
 
 .link {
