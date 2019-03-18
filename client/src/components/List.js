@@ -81,19 +81,31 @@ class List extends Component {
 
         return(
             <div className="container">
-            <h3 className="header">{this.state.list.title}</h3>
-            <div className="list-container">
-                <form className="list-form" onSubmit={this.editTitle}>
-                    <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
-                    <button type="submit" className="btn btn-warning edit-button">Edit List Title</button>
-                </form>
-                <form className="list-form" onSubmit={this.onDelete}>
-                    <button type="submit" className="btn btn-danger delete-button">Delete List</button>
-                </form>
-            </div>
-            <hr></hr>
-
-            <Item listId={this.props.match.params.id} />
+                <div className="col1">
+                    <h3 className="header">{this.state.list.title}</h3>
+                
+                    <div>
+                        <form className="list-form" onSubmit={this.editTitle}>
+                            <input type="text" name="title" value={this.state.newTitle} onChange={e => this.setState({ newTitle: e.target.value})} placeholder="New Title" />
+                                <button type="submit" className="btn btn-warning edit-button">Edit List Title</button>
+                        </form>
+                    </div>
+                    <div className="delete-button">
+                        <form className="list-form" onSubmit={this.onDelete}>
+                                <button type="submit" className="btn btn-danger delete-button">Delete List</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div className="col2">
+                    <Item listId={this.props.match.params.id} />
+                </div>
+                
+                {/* <div>
+                        <form className="list-form" id="delete" onSubmit={this.onDelete}>
+                                <button type="submit" className="btn btn-danger delete-button">Delete List</button>
+                        </form>
+                    </div> */}
 
             </div>
         )

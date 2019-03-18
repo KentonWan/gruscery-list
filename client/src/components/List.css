@@ -1,8 +1,18 @@
-.header {
-    text-decoration: underline;
-    margin-bottom: 20px;
+.container {
+    width: 100%;
 }
 
+.header {
+    color: green;
+    margin-bottom: 20px;
+    padding: 5px;
+    font-style: none;
+    font-size: 1.5em;
+}
+
+#delete {
+    margin-left: 0px;
+}
 .list-form {
 
     display: inline-block;
@@ -14,9 +24,24 @@
 }
 
 .delete-button {
-    margin-left: 20px;
+    margin-top: 50px;
 }
 
 .edit-button {
     margin-left: 5px;
+}
+
+.col1 {
+    float: left;
+    width: 30%;
+    background-color: rgba(255,255,255, 0.6);
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+}
+
+.col2 {
+    float: right;
+    width: 65%;
+    padding-top: 20px;
 }
