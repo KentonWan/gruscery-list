@@ -55,7 +55,7 @@ class Lists extends Component {
     render () {
 
         return(
-            <div className="container-lists">
+            <div className="container-lists col-lg-8 offset-lg-2">
             <h4 className="lists-header"> Current Gr'us'cery Lists: </h4>
             <div className="lists">
                 {

@@ -9,8 +9,7 @@
 }
 
 .list-link:hover {
-    font-weight: bold;
-    color: green;
+    color: rgba(0,128,0, 0.6);
     text-decoration: none;
 }
 
@@ -33,4 +32,6 @@
 
 .container-lists {
     padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255,255,255,0.6);
 }
