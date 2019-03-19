@@ -39,7 +39,7 @@ class UpdateItem extends Component {
             <div className="updateItem-container">
                 <form className="item" onSubmit={this.editItem.bind(this, this.props.itemId)}>
                     <input type="text" name="description"  value={this.state.newDescription} onChange={e => this.setState({ newDescription: e.target.value})} placeholder="" />
-                    <button type="submit" className="btn btn-warning update-btn">Update Item</button>
+                    <button type="submit" className="btn btn-sml btn-warning update-btn">Update Item</button>
                 </form>
             </div>
             )

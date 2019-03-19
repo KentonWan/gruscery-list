@@ -131,11 +131,11 @@ class Item extends Component {
 
                         {(
                         item.purchased ? 
-                        <button className="btn btn-secondary item unpurchase-btn col-md-2" type="button" onClick={this.unpurchasedItem.bind(this, item.id)} value="Unmark as Purchased">Unpurchase</button> :
-                        <button className="btn btn-primary item purchase-btn col-md-2" type="button" onClick={this.purchasedItem.bind(this, item.id)} value="Mark as Purchased">Purchased</button>
+                        <button className="btn btn-sml btn-secondary item unpurchase-btn col-md-2" type="button" onClick={this.unpurchasedItem.bind(this, item.id)} value="Unmark as Purchased">Unpurchase</button> :
+                        <button className="btn btn-sml btn-primary item purchase-btn col-md-2" type="button" onClick={this.purchasedItem.bind(this, item.id)} value="Mark as Purchased">Purchased</button>
                         )}
 
-                        <button className="btn btn-danger item delete-btn col-md-2" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button> 
+                        <button className="btn btn-sml btn-danger item delete-btn col-md-2" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button> 
 
                     </div>
                     )
@@ -152,7 +152,7 @@ class Item extends Component {
                     onChange={(e) => this.setState({ description: e.target.value})}
                     placeholder="Item Description (include quantity)">
                 </input>
-                <button type="submit" className="btn btn-success"> Add Item</button>
+                <button type="submit" className="btn btn-sml btn-success add-btn"> Add Item</button>
                 </form>                
             </div>
             

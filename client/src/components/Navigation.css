@@ -33,3 +33,9 @@ a.link:hover {
 .logo-title {
     color: white;
 }
+
+.home-btn {
+    background-color: rgba(0,128,0, 0.6);
+    padding: 4px;
+    border-radius: 3px;
+}

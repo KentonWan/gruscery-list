@@ -1,9 +1,18 @@
 h4 {
-    color: white;
+    color: rgba(255,0,0,0.8);
 }
 
 .item {
     font-size: 0.9em;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.items {
+    margin: auto;
+
 }
 
 
@@ -11,6 +20,7 @@ h4 {
     margin-right: 0px;
     padding-right: 0px;
     text-align: left;
+
 }
 
 .item btn-danger {
@@ -18,25 +28,28 @@ h4 {
 }
 
 .update-btn {
-    /* margin-left: 2px; */
-    /* margin-right: 20px; */
+    margin: auto;
 }
 
 .delete-btn {
     margin-left: 20px;
+
     font-size: 0.9em
 }
 
 .purchase-btn {
     font-size: 0.9em;
+    margin: auto;
 }
 
 .unpurchase-btn {
     font-size: 0.9em;
+    margin: auto;
 }
 
 .newItemForm {
     font-size: 0.9em;
+    margin: auto;
 }
 
 .new-item-input {
@@ -45,4 +58,19 @@ h4 {
 
 .newItem {
     margin-top: 20px;
+}
+
+#item-desc {
+    color:white;
+    margin-right: 0;
+    border-radius: 2px;
+    text-shadow:
+   -.5px .5px 0 #000,  
+    0.5px .5px 0 #000,
+    -0.5px 0.5px 0 #000,
+     0.5px 0.5px 0 #000;
+}
+
+.add-btn {
+    margin: auto;
 }

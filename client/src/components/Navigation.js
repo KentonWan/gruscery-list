@@ -27,7 +27,9 @@ class Navigation extends Component {
         return (
             <nav className="navbar navbar-expand-md fixed-top scrolling-navbar">
                 <div className="container">
-                    <Link className="link" to="/"><img src={require('../shopping-cart.png')} width="25" alt="logo" className="logo" /><span className="logo-title">  GR'US'CERY LIST</span></Link>
+                    <div className="home-btn">
+                        <Link className="link" to="/"><img src={require('../shopping-cart.png')} width="25" alt="logo" className="logo" /><span className="logo-title">  GR'US'CERY LIST</span></Link>
+                    </div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
