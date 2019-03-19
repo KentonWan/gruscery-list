@@ -117,24 +117,25 @@ class Item extends Component {
 
         return(
             <div className="container">
-            <h4>Items:</h4>
+            <h4>Items</h4>
             <div className="items">
                 {
                  this.state.items.map((item,index) =>
-                    <div className="item" key={index}>
+                    <div className="row item" key={index}>
 
-                        <p className="item" key={index}>{item.description}</p>
-                        <div className="item">
+                        <p className="item col-md-2" id="item-desc" key={index}>{item.description}</p>
+                        <div className="item col-md-5">
                             <UpdateItem  updateItem = {this.updateItem} itemId={item.id} />
                         </div>
 
+
                         {(
                         item.purchased ? 
-                        <button className="btn btn-secondary item unpurchase-btn" type="button" onClick={this.unpurchasedItem.bind(this, item.id)} value="Unmark as Purchased">Unmark as Purchased</button> :
-                        <button className="btn btn-primary item purchase-btn" type="button" onClick={this.purchasedItem.bind(this, item.id)} value="Mark as Purchased">Mark as Purchased</button>
+                        <button className="btn btn-secondary item unpurchase-btn col-md-2" type="button" onClick={this.unpurchasedItem.bind(this, item.id)} value="Unmark as Purchased">Unpurchase</button> :
+                        <button className="btn btn-primary item purchase-btn col-md-2" type="button" onClick={this.purchasedItem.bind(this, item.id)} value="Mark as Purchased">Purchased</button>
                         )}
 
-                        <button className="btn btn-danger item delete-btn" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button> 
+                        <button className="btn btn-danger item delete-btn col-md-2" type="button" onClick={this.deleteItem.bind(this, item.id)} value="Delete Item">Delete Item</button> 
 
                     </div>
                     )

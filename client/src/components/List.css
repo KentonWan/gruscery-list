@@ -33,7 +33,7 @@
 
 .col1 {
     float: left;
-    width: 30%;
+    width: 25%;
     background-color: rgba(255,255,255, 0.6);
     padding-bottom: 20px;
     padding-top: 20px;
@@ -42,6 +42,6 @@
 
 .col2 {
     float: right;
-    width: 65%;
+    width: 74%;
     padding-top: 20px;
 }
