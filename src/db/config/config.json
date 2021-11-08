@@ -23,12 +23,7 @@
     "database": "process.env.DATABASE_URL",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": {
-        "require": true, // This will help you. But you will see nwe error
-        "rejectUnauthorized": false // This line will fix new error
-      }
-    },
+    "ssl": true,
     "logging": false,
     "operatorsAliases": false,
     "use_env_variable": "DATABASE_URL"
